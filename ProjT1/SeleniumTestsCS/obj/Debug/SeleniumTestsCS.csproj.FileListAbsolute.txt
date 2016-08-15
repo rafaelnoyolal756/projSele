@@ -1,0 +1,12 @@
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\obj\Debug\SeleniumTestsCS.csprojResolveAssemblyReference.cache
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\bin\Debug\SeleniumTestsCS.dll
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\bin\Debug\SeleniumTestsCS.pdb
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\bin\Debug\nunit.framework.dll
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\bin\Debug\WebDriver.dll
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\bin\Debug\WebDriver.Support.dll
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\bin\Debug\nunit.framework.xml
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\bin\Debug\WebDriver.xml
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\bin\Debug\WebDriver.Support.xml
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\obj\Debug\SeleniumTestsCS.dll
+c:\users\rafael.noyola\documents\visual studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\obj\Debug\SeleniumTestsCS.pdb
+C:\Users\rafael.noyola\Documents\Visual Studio 2015\Projects\SeleniumTestsCS\SeleniumTestsCS\bin\Debug\chromedriver.exe
