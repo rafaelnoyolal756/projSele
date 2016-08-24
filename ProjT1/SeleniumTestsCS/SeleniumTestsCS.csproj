@@ -68,12 +68,15 @@
     <Compile Include="CopyCancelClauseCSharp.cs" />
     <Compile Include="copyClause.cs" />
     <Compile Include="createChecklist.cs" />
+    <Compile Include="createClausePrivate.cs" />
     <Compile Include="CreateClauseTest1.cs" />
     <Compile Include="createContractHTML.cs" />
     <Compile Include="createContractHTML4.cs" />
+    <Compile Include="createContractPrivate.cs" />
     <Compile Include="createOrganization.cs" />
     <Compile Include="deleteChecklist.cs" />
     <Compile Include="deleteClause.cs" />
+    <Compile Include="deleteContractinPrivate.cs" />
     <Compile Include="loginMail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="createContract.cs" />

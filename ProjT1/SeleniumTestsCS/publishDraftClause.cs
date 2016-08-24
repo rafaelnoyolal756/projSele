@@ -66,12 +66,13 @@ namespace SeleniumTests
             Thread.Sleep(4000);
             new SelectElement(driver.FindElement(By.Id("dataTableClausesAll-Status-select-search"))).SelectByText("My Draft");
             Thread.Sleep(4000);
-            driver.FindElement(By.LinkText("Acceptance Copy")).Click();///Access to Information Copy
+            driver.FindElement(By.LinkText("Acceptance of Terms of Service Copy")).Click();///Access to Information Copy
             Thread.Sleep(4000);
             driver.FindElement(By.LinkText("Draft")).Click();
-            Thread.Sleep(3000); 
-            driver.FindElement(By.CssSelector("#ClausePrimaryButton > btn btn-sm btn - success")).Click();///////PUBLISH DRAFT
-            //Thread.Sleep(20000);
+            Thread.Sleep(3000);
+            driver.FindElement(By.LinkText("Publish")).Click();
+            //driver.FindElement(By.CssSelector("#ClausePrimaryButton > btn btn-sm btn - success")).Click();///////PUBLISH DRAFT
+            //Thread.Sleep(20000);"button-status" data-button-status="Publish"
             //driver.FindElement(By.CssSelector("#ClausePrimaryButton > span.button-status")).Click();
             Thread.Sleep(3000);
             try

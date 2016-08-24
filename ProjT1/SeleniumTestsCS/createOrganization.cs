@@ -64,14 +64,42 @@ namespace SeleniumTests
             Thread.Sleep(2000);
             driver.FindElement(By.Id("view-link")).Click();
             Thread.Sleep(4000);
-            driver.FindElement(By.XPath("(//a[contains(text(),'Clauses')])[2]")).Click();
-            Thread.Sleep(7000);
-            driver.FindElement(By.XPath("(//button[@type='button'])[4]")).Click();
+
+            driver.FindElement(By.XPath("(//a[contains(text(),'Organizations')])[2]")).Click();
             Thread.Sleep(4000);
-            driver.FindElement(By.LinkText("Add New Clause")).Click();
+            driver.FindElement(By.LinkText("New Organization")).Click();
+            Thread.Sleep(2000);
+            driver.FindElement(By.Id("Name")).Clear();
+            driver.FindElement(By.Id("Name")).SendKeys("Rovelo Associates");
+            new SelectElement(driver.FindElement(By.Id("Owner"))).SelectByText("admin");
+            new SelectElement(driver.FindElement(By.Id("KResolveLevelId"))).SelectByText("Level One");
+            new SelectElement(driver.FindElement(By.Id("PrivateLibrary"))).SelectByText("Yes");
+            driver.FindElement(By.Id("DataSet")).Clear();
+            driver.FindElement(By.Id("DataSet")).SendKeys("EEEA");
+
+            driver.FindElement(By.Id("SubmitOrganization")).Click();
+            //driver.FindElement(By.CssSelector("#SubmitOrganization > btn btn-sm btn-primary")).Click();
             Thread.Sleep(4000);
-            driver.FindElement(By.Id("Heading")).Clear();
-            driver.FindElement(By.Id("Heading")).SendKeys("Test Agreement Clause");
+            
+            try
+            {
+                Assert.AreEqual("Organization added successfully.", driver.FindElement(By.XPath("//body/div[2]/div")).Text);
+                Console.WriteLine("Organization added successfully.");
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            Thread.Sleep(4000);
+            try
+            {
+                Assert.AreEqual("Edit Organization", driver.FindElement(By.CssSelector("h2.sub-header")).Text);
+                Console.WriteLine("Edit Organization - Element Found");
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
             driver.FindElement(By.LinkText("rafael")).Click();
             driver.FindElement(By.LinkText("Log Out")).Click();
         }

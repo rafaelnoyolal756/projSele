@@ -67,7 +67,7 @@ namespace SeleniumTests
             driver.FindElement(By.XPath("(//a[contains(text(),'Clauses')])[2]")).Click();
             
             Thread.Sleep(3000);
-            driver.FindElement(By.Id("dataTableClausesAll-Heading-input-search")).Clear();
+            driver.FindElement(By.Id("dataTableClausesAll-Heading-input-search")).Clear();//en contratos
             driver.FindElement(By.Id("dataTableClausesAll-Heading-input-search")).SendKeys("Test Agreement Clause");
             Thread.Sleep(3000);
             try

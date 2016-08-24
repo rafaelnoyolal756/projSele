@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -11,13 +11,13 @@ using OpenQA.Selenium.Chrome;
 namespace SeleniumTests
 {
     [TestFixture]
-    public class CreateContract
+    public class CreateContractPrivate
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
         private string baseURL;
         private bool acceptNextAlert = true;
-
+        
         [SetUp]
         public void SetupTest()
         {
@@ -25,7 +25,7 @@ namespace SeleniumTests
             baseURL = "http://54.173.64.156/";
             verificationErrors = new StringBuilder();
         }
-
+        
         [TearDown]
         public void TeardownTest()
         {
@@ -39,9 +39,9 @@ namespace SeleniumTests
             }
             Assert.AreEqual("", verificationErrors.ToString());
         }
-
+        
         [Test]
-        public void TheCreateContractTest()
+        public void TheCreateContractPrivateTest()
         {
             driver.Navigate().GoToUrl(baseURL + "CS/");
             driver.FindElement(By.LinkText("Log In")).Click();
@@ -52,25 +52,84 @@ namespace SeleniumTests
             driver.FindElement(By.Id("Password")).SendKeys("Admin1234!");
             driver.FindElement(By.Id("SubmitLogin")).Click();
             Thread.Sleep(5000);
-            Assert.AreEqual("You logged in successfully.", driver.FindElement(By.XPath("//body/div[2]/div")).Text);
+            try
+            {
+                Assert.AreEqual("You logged in successfully.", driver.FindElement(By.XPath("//body/div[2]/div")).Text);
+                Console.WriteLine("You logged in successfully.");
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
             driver.FindElement(By.LinkText("rafael")).Click();
             driver.FindElement(By.Id("view-link")).Click();
-            driver.FindElement(By.XPath("(//a[contains(text(),'Contracts')])[2]")).Click();
+            Thread.Sleep(4000);
+            try
+            {
+                Assert.AreEqual("Organization", driver.FindElement(By.CssSelector("b")).Text);
+                Console.WriteLine("Organization - Element Found");
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            try
+            {
+                Assert.AreEqual("Organization Public", driver.FindElement(By.LinkText("Organization Public")).Text);
+                Console.WriteLine("Organization Public - Element Found");
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            try
+            {
+                driver.FindElement(By.LinkText("Organization Public")).Click();
+                Console.WriteLine("Organization Public Clicked");
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            Thread.Sleep(4000);
+            try
+            {
+                Assert.AreEqual("Rovelo Associates", driver.FindElement(By.LinkText("Rovelo Associates")).Text);
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            try
+            {
+                driver.FindElement(By.LinkText("Rovelo Associates")).Click();
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
             Thread.Sleep(5000);
+            try
+            {
+                Assert.AreEqual("Organization changed successfully.", driver.FindElement(By.XPath("//body/div[2]/div")).Text);
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            driver.FindElement(By.XPath("(//a[contains(text(),'Contracts')])[2]")).Click();
             driver.FindElement(By.XPath("(//button[@type='button'])[4]")).Click();
             driver.FindElement(By.LinkText("Add New Contract")).Click();
             Thread.Sleep(5000);
             // ERROR: Caught exception [ERROR: Unsupported command [selectFrame | contract | ]]
             //driver.FindElement(By.CssSelector("ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > ul.children > li.child > div.tag-line > span.theme-twisty.expander")).Click();
             // ERROR: Caught exception [unknown command []]
-            Thread.Sleep(5000);
+
             driver.FindElement(By.CssSelector("p.L1")).Click();
             driver.FindElement(By.CssSelector("p.L1")).Clear();
             driver.FindElement(By.CssSelector("p.L1")).SendKeys("This executive employment Agreement");
-           
             Thread.Sleep(5000);
             driver.FindElement(By.Id("menu-toggle")).Click();
-            
             Thread.Sleep(5000);
             driver.FindElement(By.Id("Title")).Click();
             driver.FindElement(By.Id("Title")).Clear();
@@ -134,7 +193,7 @@ namespace SeleniumTests
                 return false;
             }
         }
-
+        
         private bool IsAlertPresent()
         {
             try
@@ -147,25 +206,18 @@ namespace SeleniumTests
                 return false;
             }
         }
-
-        private string CloseAlertAndGetItsText()
-        {
-            try
-            {
+        
+        private string CloseAlertAndGetItsText() {
+            try {
                 IAlert alert = driver.SwitchTo().Alert();
                 string alertText = alert.Text;
-                if (acceptNextAlert)
-                {
+                if (acceptNextAlert) {
                     alert.Accept();
-                }
-                else
-                {
+                } else {
                     alert.Dismiss();
                 }
                 return alertText;
-            }
-            finally
-            {
+            } finally {
                 acceptNextAlert = true;
             }
         }

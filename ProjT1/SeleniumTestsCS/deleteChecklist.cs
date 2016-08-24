@@ -47,7 +47,7 @@ namespace SeleniumTests
             driver.Navigate().GoToUrl(baseURL + "CS/");
             driver.FindElement(By.LinkText("Log In")).Click();
             Thread.Sleep(3000);
-            Console.WriteLine("Login");
+            
             driver.FindElement(By.Id("UserName")).Clear();
             driver.FindElement(By.Id("UserName")).SendKeys("rafael.noyola@creativaconsultores.com");
             driver.FindElement(By.Id("Password")).Clear();
@@ -73,16 +73,59 @@ namespace SeleniumTests
             try
             {
                 Assert.IsTrue(IsElementPresent(By.LinkText("Test Consistency")));
+                Console.WriteLine("Test Consistency - Found");
             }
             catch (AssertionException e)
             {
                 verificationErrors.Append(e.Message);
             }
             Thread.Sleep(4000);
-            driver.FindElement(By.CssSelector("a.cursor-pointer.DeleteChecklist > span.visible-desktop")).Click();
-            //driver.FindElement(By.LinkText("Delete")).Click();
+            //try
+            //{
+            //    driver.FindElement(By.CssSelector("a.cursor-pointer.DeleteChecklist > span.visible-desktop")).Click();
+            //    Console.WriteLine("Delete the checklist found");
+            //}
+            //catch (AssertionException e)
+            //{
+            //    verificationErrors.Append(e.Message);
+            //}
 
-            driver.FindElement(By.XPath("//div[@class='ajs-footer']//button[.='No']")).Click();
+            
+            try
+            {
+                Assert.IsTrue(IsElementPresent(By.LinkText("Delete")));
+                Console.WriteLine("Delete link - Found");
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            driver.FindElement(By.LinkText("Delete")).Click();
+            Thread.Sleep(4000);
+            try
+            {
+                Assert.IsTrue(IsElementPresent(By.XPath("//div[@class='ajs-footer']//button[.='Yes']")));
+                Console.WriteLine("Yes answer - Found");
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+               
+            }
+            Thread.Sleep(4000);
+            try
+            {
+                driver.FindElement(By.XPath("//div[@class='ajs-footer']//button[.='Yes']")).Click();
+                //driver.FindElement(By.LinkText("Yes")).Click();
+                //driver.FindElement(By.XPath("//div[4]/div[2]/button")).Click();
+                //driver.FindElement(By.CssSelector("#ajs-button > btn btn-primary")).Click();
+            }
+            catch (AssertionException e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            //driver.FindElement(By.XPath("//div[@class='ajs-footer']//button[.='No']")).Click();
+            Thread.Sleep(5000);
             driver.FindElement(By.LinkText("rafael")).Click();
             driver.FindElement(By.LinkText("Log Out")).Click();
         }

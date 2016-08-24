@@ -117,7 +117,7 @@ namespace SeleniumTests
             driver.FindElement(By.Id("HtmlFileButton")).Clear();
             driver.FindElement(By.Id("HtmlFileButton")).SendKeys("C:\\CS uploadtests\\Tests\\examples\\uploads\\contracts\\End User License Agreement.html");
             Thread.Sleep(5000);
-            driver.FindElement(By.XPath("//div[4]/div[2]/button[2]")).Click();
+            driver.FindElement(By.XPath("//div[4]/div[2]/button[2]")).Click();//leave the title as the filename prompt, button[2] for cancel
             Thread.Sleep(5000);
             driver.FindElement(By.Id("SubmitContract")).Click();
             Thread.Sleep(5000);
@@ -152,7 +152,7 @@ namespace SeleniumTests
             {
                 verificationErrors.Append(e.Message);
             }
-            
+            Thread.Sleep(4000);
             try
             {
                 Assert.AreEqual("Please read this agreement carefully. It contains important terms that affect you and your use of the Software. By clicking, \"I accept\" or by installing, copying, or using the Software, you agree to be bound by the terms of this agreement, including the disclaimers. If you do not agree to these terms, do not install, copy, or use the software.", driver.FindElement(By.XPath("//div[@id='contract']/p[3]")).Text);
@@ -162,6 +162,7 @@ namespace SeleniumTests
             {
                 verificationErrors.Append(e.Message);
             }
+            Thread.Sleep(4000);
             driver.FindElement(By.Id("DeleteContractButton")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.XPath("//div[4]/div[2]/button")).Click();
