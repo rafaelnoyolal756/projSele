@@ -1,4 +1,4 @@
-REM ***Script de creacion tablas de sistema
+
 --poner el esquema asociado para cada objeto
 CREATE TABLE CATALOG(
 ID PRIMARY KEY NOT NULL,
@@ -22,3 +22,5 @@ ADD ( CONSTRAINT CATALOG_ID_PK
 );
 
 CREATE SEQUENCE CATALOG_SEQ START WITH 1 INCREMENT BY 1 CACHE 20 ORDER NOCYCLE;
+
+--procedures below here
