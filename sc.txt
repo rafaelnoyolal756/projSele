@@ -1,4 +1,4 @@
-
+REM ***Script de creacion tablas de sistema
 --poner el esquema asociado para cada objeto
 CREATE TABLE CATALOG(
 ID PRIMARY KEY NOT NULL,
