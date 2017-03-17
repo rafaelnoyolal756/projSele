@@ -1,0 +1,85 @@
+--CLUSTERED/NON CLUSTERED INDEX DOESN'T EXIST IN ORACLE  ORGANIZED TABLES DOES
+
+CREATE TABLE DimCustomer
+(
+	CustomerKey INTEGER PRIMARY KEY NOT NULL,
+	CustomerNum INTEGER NOT NULL,
+	CustomerName VARCHAR(25) NOT NULL,
+	Planet VARCHAR(25) NOT NULL,
+	RowIsCurrent CAHR(1) NOT NULL DEFAULT 'Y',
+	RowStartDate TIMESTAMP(6) NOT NULL DEFAULT SYSDATE,
+	RowEndDate DATE NOT NULL DEFAULT '12/31/9999'
+
+);
+
+ALTER TABLE DimCustomer ADD (CONSTRAINT pk_DimCustomer PRIMARY KEY (CustomerKey)
+
+Create INDEX ic_dbo_DimCustomer 
+ON dbo.DimCustomer (CustomerNum);
+
+
+Create INDEX nc_dbo_DimCustomer_RIC 
+on dbo.DimCustomer (RowisCurrent);
+
+
+Create Index nc_dbo_DimCustomer_SCD 
+on dbo.DimCustomer (CustomerNum, RowStartDate) INCLUDE (RowEndDate, CustomerKey);
+
+--CREATE TEMP TABLE
+CREATE TABLE DimCustomer
+(
+	CustomerNum INTEGER NOT NULL,
+	CustomerName VARCHAR(25) NOT NULL,
+	Planet VARCHAR(25) NOT NULL,
+	ChangeDate TIMESTAMP NOT NULL DEFAULT SYSDATE,
+	RankNo INTEGER NOT NULL DEFAULT 1
+);
+
+CREATE TABLE dbo.FactSalesDetails
+(
+	SalesOrderNumber INTEGER PRIMARY KEY NOT NULL,
+	OrderDate DATE NOT NULL,
+	OrderDollars NUMBER(8,2) NOT NULL,
+  	OrderCostDollars NUMBER(8,2) NOT NULL,
+	CustomerKey INTEGER
+);
+
+--VERIFICAR SI CULTERED IS VALID
+CREATE INDEX ic_FactSalesDetails ON dbo.FactSalesDetails (OrderDate);
+--constraint added
+ALTER TABLE dbo.FactSalesDetails ADD CONSTRAINT PK_CUSTOMER_DET FOREIGN KEY (CustomerKey)
+	REFERENCES dbo.DimCustomer(CustomerKey);
+
+-- Preload the Dimension.
+INSERT INTO dbo.DimCustomer(CustomerNum, CustomerName, Planet,  RowStartDate) 
+VALUES (101,'Anakin Skywalker', 'Tatooine',   SYSDATE - 101);
+INSERT INTO dbo.DimCustomer(CustomerNum, CustomerName, Planet,  RowStartDate) 
+VALUES (102,'Yoda', 'Coruscant',  SYSDATE - 100);
+INSERT INTO dbo.DimCustomer(CustomerNum, CustomerName, Planet,  RowStartDate) 
+VALUES (103,'Obi-Wan Kenobi', 'Coruscant',  SYSDATE - 100);
+
+/*
+CREATE TABLE dbo.DimEmployee
+(
+	EmployeeKey INTEGER PRIMARY KEY NOT NULL,
+	EmployeeNumber CHAR(9) NOT NULL,
+	EmployeeFirstName VARCHAR(25) NOT NULL,
+	EmployeeLastName VARCHAR(25) NOT NULL,
+	EmployeeMiddleInitial CHAR(1),
+	JobTitle VARCHAR(25) NOT NULL,
+	RowIsCurrent CHAR(1) NOT NULL DEFAULT 'Y',
+	RowStartDate TIMESTAMP(6) NOT NULL DEFAULT getdate(),
+	RowEndDate TIMESTAMP(6) NOT NULL DEFAULT '12/31/9999'
+);
+
+--VERIFICAR SI CULTERED IS VALID Y SI APLICA A CAMPOS SIMULTANEOS
+CREATE UNIQUE INDEX ic_DimEmployee ON dbo.DimEmployee
+(
+	EmployeeNumber,
+	RowStartDate
+);
+
+ALTER TABLE dbo.FactSalesDetails ADD 
+	FOREIGN KEY (DimEmployee_EmployeeKey)
+		REFERENCES dbo.DimEmployee(EmployeeKey);
+*/

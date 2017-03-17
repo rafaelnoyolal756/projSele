@@ -1,0 +1,53 @@
+el problema: la edicion de archivos sin perder el control de los cambios pasados
+
+basado en la existencia del popular sistema de control de versiones y su funcionamiento en linea es necesario establecer limitantes y beneficios para un grupo selecto de usuarios, para que pueda tener acceso con fines de demostracion de las habilidades del desarrollador 
+
+[beneficios]
+se ofrece en el sistema acceso al repositorio no es publico
+se pueden agregar usuarios al repositorio de otro usuario(la forma de trabajo unica desde la web limita el trabajo colaborativo?,ordenado, muchos archivos)
+se ofrece el sistema sin soporte especializado (minimamente se podrian realizar upgrades incrementales)
+se ofrece el sistema como es sin costo pero con limitantes expuestas a continuacion
+el desarrollador no interviene en la creacion del usuario del sistema y el repositorio
+se dara acceso a la creacion de usuario y repositorio en forma encriptadas a la vista del desarrollador pero datos reales a la vista del usuario
+
+[limitantes]
+limite maximo diponible para poder realizar cambios
+juego de caracteres utf-8
+edicion en linea de los archivos no sera implementada
+no se creara la posibilidad de trabajar con ramas
+no se creara una interfaz de escritorio para poder controlar el versionamiento
+
+--realizar manifiesto o acuerdo de licencia en base a beneficios y limitantes
+
+TO DO < se debe crear metodos para poder evitar que el usuario no pueda realizar su trabajo>
+	<se deben crear metodos para el aseguramiento de que el usuario realice su trabajo>
+TO DO <se debe definir con que tipo de archivos se trabajara(txt preferible) para facilitar el desarrollo de la primera version o definir un caso en especifico>
+TO DO! <con el commit se puede verificar la version del archivo cargado>
+TO DO <se debe mostrar al usuario los cambios realizados entre versiones o commits definir si es limitante>
+
+svn de un archivo
+
+1- el archivo se sube al historico
+2- el archivo se marca con cambios para despues subir al historico(new)
+3- el archivo se marca con cambios para despues subir al historico(new,expired scd2), archivo con mismo nombre automaticamente es registrado como un nuevo commit y el mas reciente es el current
+...
+
+
+outputs or functions to develop in bussiness logic layer or backend--> en la subida de archivo solo se toma encuenta el metodo new,expired scd2
+
+
+-Unchanged: This output contains all rows that haven’t been changed. Typically, these rows are discarded.
+-New: All rows that did not find a match for the business key in the dimension go to this output.
+-Deleted: Rows that no longer exist in the source system are sent to this output. This is only possible if type 2 changes are not tracked. Since one of the objectives of a data warehouse is to retain history, this output is rarely used.
+-Expired SCD2 with SCD1 changes: These are the history rows for a certain business key. The IsCurrent column and the EndDate column are updated in this output.
+-New SCD2: When a type 2 change occurs, two rows are sent to the outputs. The old row is sent to the previous output, and the new current row is sent to this output.
+-SCD1 Updated: This output contains all rows with a type 1 change.
+-Invalid Input: Any row where problems are detected are sent to this output. This can be a NULL business key but also, for example, rows from the existing dimension with incorrect EndDates, causing an overlap between history rows. This output is important for troubleshooting the dimension merge component.
+Auditing: one row with various auditing information is sent to this output.
+Statistics: This output has rows with performance information directed to.
+
+
+-se plantea la creacion de un sitio web para la gestion de usuarios y repositorios por usuario, en la primera version se contara con la carga y la capacidad de añadir informacion o descripcion del cambio realizado(commit) en cada carga , una pagina que cuente con la habilidad de poder invocar metodos o sp que permitan la insercion en la tabla catalogo.
+-la pagina de gestion de usuarios independiente del proceso de carga, esta parte debe contar con la posibilidad de crear el usuario a utilizar en el sistema y luego poder realizar la creacion de su repositorio para despues poder presentarsele la capacidad de cargar archivos al repositorio
+-una pagina para poder visualizar los cambios realizados por carga, teniendo la habilidad de hacer lectura y mostrar los registros almacenados y se espera que se puedan visualizar los datos contenidos en los archivos cargados
+

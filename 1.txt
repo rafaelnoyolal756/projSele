@@ -1,0 +1,46 @@
+kARLA ODALIS LINARES CORDERO
+
+Buenos días,
+Adjunto el detalle de la evaluación de la capacitación.
+
+PRIMERA PARTE:
+Sirve para evaluar su análisis en el diseño de bases de datos.
+
+Se solicita:
+- Crear un diseño de bases de datos (se pueden entregar diagramas o scripts de creacion de tablas) para que una empresa pueda registrar Estudiantes y Notas.
+
+El diseño no debe exceder las dos tablas (por ser un caso rápido) y deberán agregar los constraints y validaciones que crean necesarias en la sintaxis Oracle.
+
+SEGUNDA PARTE:
+Sirve para evaluar la parte técnica en base al conocimiento adquirido en el curso.
+
+Se solicita:
+- Crear un paquete con dos funciones:
+
+1) Cálculo de Promedio de todas las notas del estudiante.
+2) Creación del Código del Estudiante con la estructura:
+    Primera letra del nombre + Primera letra del apellido + Dos dígitos correspondientes al año (los últimos dos, ej: 17 para 2017) + El correlativo del estudiante pero mostrado como 4 dígitos. Ej: 0023 para el estudiante 23).
+
+- Un mantenimiento que permita:
+
+    Adicionar estudiantes al sistema con su fecha de incripción que sería la fecha actual y el estado de ingreso sería INC por defecto.
+    Un botón que permita llamar el mantenimiento de materias en el cual se podrá agregar las materias al curso.
+    En el detalle de la primera pantalla permita asociarle materias al estudiante y colocar una nota (se sugiere unas una lista de valores para colocar el identificador de la materia).
+    Un botón que permita crear el código del estudiante y colocárselo.
+
+- Reporte de notas de los estudiantes.
+
+TERCERA PARTE:
+
+Sirve para evaluar la parte teórica del curso.
+
+- Defina, ¿qué es un bloque?
+BLOQUE ES COMO UNA TABLA EN BASES DE DATOS QUE SE PUEDE MODIFICAR DETALLAR SU VISTA, PONER VALORES DEFAULT ETC
+
+- ¿Qué utilidad ve en un maestro detalle?
+
+UN MAESTRO ES COMO UNA TABLA EN LA CUAL ES PADRE DE OTRA Y EN ESTA TABLA MAESTRA SE CONSULTAO SE MUESTRAN SUS HIJOS AL CUAL PERTENECEN
+
+
+- ¿Qué utilidad tiene una lista de valores?
+PARA SELECCIONAR UNA CATALOGO O OPCIONES QUE SE LE ASIGNAN

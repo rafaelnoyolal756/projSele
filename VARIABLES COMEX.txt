@@ -1,0 +1,7 @@
+DEFICIT=SUMA(EXPORTACIONES)-SUMA(IMPORTACIONES)
+EXPORTACIONES= No Trad.+Trad.+Maq. (EXP)
+IMPORTACIONES= Consumo+Interm.+Capital (BK)+Maq. (IMP)
+
+deficit mensual 
+total de exportaciones mensual
+total de importaciones mensual

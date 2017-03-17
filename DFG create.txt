@@ -1,0 +1,11 @@
+>create user DFG identified by 123456 default tablespace DFG_tablespace temporary tablespace DFG_tablespace_temp;
+
+>create tablespace DFG_TABLESPACE datafile 'DFG_tablespace.dat' size 30M autoextend on;
+
+>create temporary tablespace DFG_TABLESPACE_TEMP tempfile 'DFG_TABLESPACE_TEMP.dat' size 15M autoextend on;
+
+>grant create session to DFG;
+>grant cteate table to DFG;
+>grant unlimited tablespace to DFG;
+>grant DBA to DFG;
+>grant RESOURCE to DFG;

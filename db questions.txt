@@ -1,0 +1,6 @@
+employee training and skills are available to the company?sufficent for current or upcoming projects?
+employee-department-position-training_course-skills-year-date_training-
+one record for every skill?
+employee-department-skills-date_training
+
+employee-employee_company-position-training_course-date_training-training_company
